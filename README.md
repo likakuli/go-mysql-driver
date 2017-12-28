@@ -13,3 +13,9 @@ Default:        false
 ```
 
 `parseBool=true` changes the output type of `BIT` values to `bool` instead of `[]byte` / `string`
+
+Add Procedure Support
+
+Use `repository` to operate procedures. Only need to define entity implemented the `IInputEntity` interface.
+
+
