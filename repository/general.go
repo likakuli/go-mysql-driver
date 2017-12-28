@@ -8,10 +8,9 @@ import (
 	"strconv"
 	"strings"
 
-	"gitlab.gridsum.com/devops-k8s-mgmt-api/apis/entity"
-	"gitlab.gridsum.com/devops-k8s-mgmt-api/managers"
-
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/likakuli/go-mysql-driver/dbm"
+	"github.com/likakuli/go-mysql-driver/entity"
 )
 
 var (
@@ -217,8 +216,8 @@ func validateFieldOrders(fields []string) (int, error) {
 }
 
 func init() {
-	managers.Initialize()
-	db = managers.ApiManager.DBManager.DB
+	dbManager := &dbm.MySqlDBManager{}
+	dbManager.Initialize("")
 	inputCache = NewSafeMap()
 	outputCache = NewSafeMap()
 }
