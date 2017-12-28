@@ -217,7 +217,8 @@ func validateFieldOrders(fields []string) (int, error) {
 
 func init() {
 	dbManager := &dbm.MySqlDBManager{}
-	dbManager.Initialize("")
+	dbManager.Initialize(os.Getenv("DBConnection"))
+	db = dbManager.DB
 	inputCache = NewSafeMap()
 	outputCache = NewSafeMap()
 }
